@@ -3,7 +3,7 @@ FROM node:8-alpine
 # - Upgrade alpine packages to avoid possible os vulnerabilities
 # - Tini for Handling Kernel Signals https://github.com/krallin/tini
 #   https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md#handling-kernel-signals
-RUN apk --no-cache upgrade && apk add --no-cache tini
+RUN apk --no-cache upgrade && apk add --no-cache tini && apk add tzdata && cp /usr/share/zoneinfo/Asia/Hong_Kong /etc/timezone
 
 WORKDIR /opt/arena
 
